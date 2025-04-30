@@ -1,5 +1,12 @@
 "use client";
+import Link from "next/link";
 export default function HeroSection() {
+  const scrollToCards = () => {
+  const element = document.getElementById('cards-view');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
   return (
     <div className="relative h-screen overflow-hidden flex flex-col items-center justify-center pt-16">
       <video
@@ -23,9 +30,13 @@ export default function HeroSection() {
           amazon, etc tiketing.com tracks online ad impressions until the
           customer makes an offline purchase-just one click away
         </p>
-        <button className=" border border-white text-white py-3 px-6 text-lg md:text-xl underline rounded-md font-bold transition duration-300 ease-in-out hover:bg-white hover:text-black">
+        <Link
+          href="#cards-view"
+          onClick={scrollToCards}
+          className="border border-white text-white py-3 px-6 text-lg md:text-xl underline rounded-md font-bold transition duration-300 ease-in-out hover:bg-white hover:text-black"
+        >
           EXPLORE NOW
-        </button>
+        </Link>
       </div>
     </div>
   );

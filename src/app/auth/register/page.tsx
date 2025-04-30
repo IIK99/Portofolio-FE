@@ -1,8 +1,18 @@
+"use client";
 import Link from "next/link";
+import NavbarHome from "@/components/navbarhome";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Page() {
+  const [isPasswordShown, setIsPasswordShown] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordShown(!isPasswordShown);
+  };
   return (
     <>
+      <NavbarHome />
       <div
         className=" bg-cover bg-no-repeat bg-center z-0"
         style={{ backgroundImage: "url('/images/bg1.jpg')" }}
@@ -49,23 +59,51 @@ export default function Page() {
             {/* <div className=" my-1 text-red-500">{formik.errors.email}</div> */}
 
             <div className=" font-bold mt-5 text-white">Password</div>
-            <input
+            <div className="p-3 flex bg-[#F3F4F6] rounded-lg w-full">
+              <input
+                type={isPasswordShown ? "text" : "password"}
+                id="password"
+                className="w-full  bg-[#F3F4F6] outline-none"
+              />
+              <button
+                onClick={togglePasswordVisibility}
+                type="button"
+                className="ml-2"
+              >
+                {isPasswordShown ? <FaEye /> : <FaEyeSlash />}
+              </button>
+            </div>
+            {/* <input
               type="password"
               className="p-3 bg-[#F3F4F6] rounded-lg"
               // onChange={formik.handleChange}
               id="password"
               // value={formik.values.password}
-            ></input>
+            ></input> */}
             {/* <div className=" my-1 text-red-500">{formik.errors.password}</div> */}
 
             <div className=" font-bold mt-5 text-white">Re-Type Password</div>
-            <input
+            <div className="p-3 flex bg-[#F3F4F6] rounded-lg w-full">
+              <input
+                type={isPasswordShown ? "text" : "password"}
+                id="password"
+                className="w-full  bg-[#F3F4F6] outline-none"
+              />
+              <button
+                onClick={togglePasswordVisibility}
+                type="button"
+                className="ml-2"
+              >
+                {isPasswordShown ? <FaEye /> : <FaEyeSlash />}
+              </button>
+            </div>
+            {/* <input
               type="password"
               className="p-3 bg-[#F3F4F6] rounded-lg"
               // onChange={formik.handleChange}
               id="password"
               // value={formik.values.password}
-            ></input>
+            ></input> */}
             {/* <div className=" my-1 text-red-500">{formik.errors.password}</div> */}
 
             <p className=" mt-5 text-[#989898] text-[13px]">

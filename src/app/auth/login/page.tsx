@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import NavbarHome from "@/components/navbarhome";
 
 export default function Page() {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
@@ -11,6 +12,7 @@ export default function Page() {
   };
   return (
     <>
+    <NavbarHome />
       <div
         className=" bg-cover bg-no-repeat bg-center z-0"
         style={{ backgroundImage: "url('/images/bg.png')" }}
@@ -51,7 +53,7 @@ export default function Page() {
                 type="button"
                 className="ml-2"
               >
-                {isPasswordShown ? <FaEyeSlash /> : <FaEye />}
+                {isPasswordShown ? <FaEye /> : <FaEyeSlash />}
               </button>
             </div>
 
@@ -62,7 +64,7 @@ export default function Page() {
               </Link>
             </div>
             <button
-              className="rounded-lg mt-2 text-white bg-[#FF0000] h-16 font-semibold text-md hover:underline hover:bg-[#690003]"
+              className="rounded-lg mt-2 text-white bg-[#FF0000] h-16 font-semibold text-lg hover:underline hover:bg-[#690003]"
               // onClick={login}
             >
               Sign in

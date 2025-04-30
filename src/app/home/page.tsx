@@ -3,7 +3,8 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Filter from "../../components/filter";
 import HeroSection from "../../components/hero";
-import Navbar from "../../components/navbar";
+import NavbarHome from "../../components/navbarhome";
+import Footer from "../../components/footer";
 
 export default function App() {
   type Cards = {
@@ -185,9 +186,10 @@ export default function App() {
 
   return (
     <>
-      <Navbar />
+      <NavbarHome />
+      {/* <AdminNavbar/> */}
       <HeroSection />
-      <div className="py-10 bg-gradient-to-tl from-[#c31432] to-[#240b36]">
+      <div id="cards-view" className="py-10 bg-gradient-to-tl from-[#c31432] to-[#240b36]">
         <div className="  flex w-full justify-center gap-2 relative">
           {/* ini sidebar */}
           <Filter show={showFilter} setShow={setShowFilter} />
@@ -238,6 +240,7 @@ export default function App() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

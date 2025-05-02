@@ -15,7 +15,7 @@ export default function Filter({ show, setShow }: FilterSidebarProps) {
           show ? "translate-x-0" : "-translate-x-full lg:translate-x-0 "
         } flex-col lg:flex w-64 lg:w-[270px] lg:h-1/2 sm:h-[550px] border-2 border-gray-200 bg-white rounded-md z-20 transition-transform duration-500 ease-in-out`}
       >
-        <div className="flex items-center justify-between bg-gray-200 px-4 py-2 rounded-t-md">
+        <div className="flex items-center justify-between bg-blue-400 px-4 py-2 rounded-t-md">
           <h2 className="font-extrabold text-2xl tracking-wide">Filter</h2>
           <IoCloseOutline
             className="lg:hidden w-10 h-10 cursor-pointer"
@@ -33,7 +33,7 @@ export default function Filter({ show, setShow }: FilterSidebarProps) {
                   className="w-full text-base focus:outline-none focus:ring-0"
                 />
               </div>
-              <div className="h-full w-[20%] bg-gray-400 flex justify-center bg-gradient-primary rounded-e-lg">
+              <div className="h-full w-[20%] bg-blue-400 flex justify-center bg-gradient-primary rounded-e-lg">
                 <button
                   type="submit"
                   className="h-full w-9 flex justify-center items-center p-[1px]"
@@ -56,7 +56,7 @@ export default function Filter({ show, setShow }: FilterSidebarProps) {
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-0"
                 />
                 <label className="w-full py-3 ms-2 text-sm font-medium text-gray-900 capitalize">
-                  Taylor Swift
+                  Suku & Budaya
                 </label>
               </div>
             </li>
@@ -67,7 +67,7 @@ export default function Filter({ show, setShow }: FilterSidebarProps) {
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-0"
                 />
                 <label className="w-full py-3 ms-2 text-sm font-medium text-gray-900 capitalize">
-                  Yoasobi
+                  Tempat Bersejarah
                 </label>
               </div>
             </li>
@@ -78,7 +78,7 @@ export default function Filter({ show, setShow }: FilterSidebarProps) {
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-0"
                 />
                 <label className="w-full py-3 ms-2 text-sm font-medium text-gray-900 capitalize">
-                  Joji
+                  Pantai/Gunung
                 </label>
               </div>
             </li>
@@ -89,7 +89,7 @@ export default function Filter({ show, setShow }: FilterSidebarProps) {
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-0"
                 />
                 <label className="w-full py-3 ms-2 text-sm font-medium text-gray-900 capitalize">
-                  The Weekend
+                  Makanan Khas
                 </label>
               </div>
             </li>

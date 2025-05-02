@@ -1,8 +1,11 @@
 "use client";
+
 import Link from "next/link";
 import NavbarHome from "@/components/navbarhome";
 import { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle, FaFacebookF } from "react-icons/fa";
+
+
 
 export default function Page() {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
@@ -13,11 +16,16 @@ export default function Page() {
   return (
     <>
       <NavbarHome />
+      <audio autoPlay loop hidden>
+        <source src="/audios/bg.MP3" type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
+
       <div
         className=" bg-cover bg-no-repeat bg-center z-0"
-        style={{ backgroundImage: "url('/images/bg1.jpg')" }}
+        style={{ backgroundImage: "url('/images/cd1.jpg')" }}
       >
-        <div className="flex flex-col justify-center items-center min-h-screen text-sm p-3">
+        <div className="flex flex-col justify-center items-center min-h-screen text-sm pt-5">
           <div className="flex flex-col max-[440px] p-5 rounded-xl bg-black bg-opacity-70">
             <h1 className=" text-3xl font-semibold text-white">
               Create a new account
@@ -29,7 +37,7 @@ export default function Page() {
 
             <div className=" font-bold mt-5 text-white">First Name</div>
             <input
-              className=" p-3 bg-[#F3F4F6] rounded-lg "
+              className=" p-2 bg-[#F3F4F6] rounded-lg "
               placeholder="First name"
               // onChange={(e) => formik.setFieldValue("first_name", e.target.value)}
               id="first_name"
@@ -37,9 +45,9 @@ export default function Page() {
             ></input>
             {/* <div className=" my-1 text-red-500">{formik.errors.first_name}</div> */}
 
-            <div className=" font-bold mt-5 text-white">Last Name</div>
+            <div className=" font-bold mt-3 text-white">Last Name</div>
             <input
-              className=" p-3 bg-[#F3F4F6] rounded-lg "
+              className=" p-2 bg-[#F3F4F6] rounded-lg "
               placeholder="Last name"
               // onChange={(e) => formik.setFieldValue("last_name", e.target.value)}
               id="last_name"
@@ -47,10 +55,10 @@ export default function Page() {
             ></input>
             {/* <div className=" my-1 text-red-500">{formik.errors.last_name}</div> */}
 
-            <div className=" font-bold mt-5 text-white">Email</div>
+            <div className=" font-bold mt-3 text-white">Email</div>
             <input
               type="email"
-              className="p-3  bg-[#F3F4F6] rounded-lg "
+              className="p-2  bg-[#F3F4F6] rounded-lg "
               placeholder="ticketing@mail.com"
               // onChange={formik.handleChange}
               id="email"
@@ -58,8 +66,8 @@ export default function Page() {
             ></input>
             {/* <div className=" my-1 text-red-500">{formik.errors.email}</div> */}
 
-            <div className=" font-bold mt-5 text-white">Password</div>
-            <div className="p-3 flex bg-[#F3F4F6] rounded-lg w-full">
+            <div className=" font-bold mt-3 text-white">Password</div>
+            <div className="p-2 flex bg-[#F3F4F6] rounded-lg w-full">
               <input
                 type={isPasswordShown ? "text" : "password"}
                 id="password"
@@ -82,8 +90,8 @@ export default function Page() {
             ></input> */}
             {/* <div className=" my-1 text-red-500">{formik.errors.password}</div> */}
 
-            <div className=" font-bold mt-5 text-white">Re-Type Password</div>
-            <div className="p-3 flex bg-[#F3F4F6] rounded-lg w-full">
+            <div className=" font-bold mt-3 text-white">Re-Type Password</div>
+            <div className="p-2 flex bg-[#F3F4F6] rounded-lg w-full">
               <input
                 type={isPasswordShown ? "text" : "password"}
                 id="password"
@@ -106,6 +114,16 @@ export default function Page() {
             ></input> */}
             {/* <div className=" my-1 text-red-500">{formik.errors.password}</div> */}
 
+            <div className="flex items-center justify-center gap-4 mt-4">
+              <button className="flex items-center gap-2 px-4 py-2 bg-white text-black rounded-lg shadow hover:bg-black-800 transition">
+                <FaGoogle className="text-xl" />
+                <span className="text-sm font-medium">Register with Google</span>
+              </button>
+              <button className="flex items-center gap-2 px-4 py-2 bg-[#0d2dfd] text-white rounded-lg shadow hover:bg-[#1877F2] transition">
+                <FaFacebookF className="text-xl" />
+                <span className="text-sm font-medium">Register with Facebook</span>
+              </button>
+            </div>
             <p className=" mt-5 text-[#989898] text-[13px]">
               By registering, you agree to the Terms of Service and Privacy
               Policy of Ticketing.com

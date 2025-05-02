@@ -1,7 +1,8 @@
 "use client";
+
 import Link from "next/link";
 import { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle, FaFacebookF } from "react-icons/fa";
 import NavbarHome from "@/components/navbarhome";
 
 export default function Page() {
@@ -12,10 +13,14 @@ export default function Page() {
   };
   return (
     <>
-    <NavbarHome />
+      <NavbarHome />
+      <audio autoPlay loop hidden>
+        <source src="/audios/bg.MP3" type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
       <div
         className=" bg-cover bg-no-repeat bg-center z-0"
-        style={{ backgroundImage: "url('/images/bg.png')" }}
+        style={{ backgroundImage: "url('/images/br.jpg')" }}
       >
         <div className="flex flex-col justify-center items-center min-h-screen text-sm p-3">
           <div className=" text-center pb-9">
@@ -23,7 +28,7 @@ export default function Page() {
               Welcome to ticketing.com
             </h1>
             <p className=" text-white text-xl font-semibold underline tracking-wide">
-              The safest and most trusted music event ticket sales site
+              The safest and most trusted travel event ticket sales site
             </p>
           </div>
           <div className="flex flex-col max-[440px] p-5 rounded-xl bg-black bg-opacity-70">
@@ -69,6 +74,16 @@ export default function Page() {
             >
               Sign in
             </button>
+            <div className="flex items-center justify-center gap-4 mt-4">
+              <button className="flex items-center gap-2 px-4 py-2 bg-white text-black rounded-lg shadow hover:bg-black-800 transition">
+                <FaGoogle className="text-xl" />
+                <span className="text-sm font-medium">Login with Google</span>
+              </button>
+              <button className="flex items-center gap-2 px-4 py-2 bg-[#0d2dfd] text-white rounded-lg shadow hover:bg-[#1877F2] transition">
+                <FaFacebookF className="text-xl" />
+                <span className="text-sm font-medium">Login with Facebook</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>

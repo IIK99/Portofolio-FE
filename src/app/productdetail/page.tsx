@@ -6,11 +6,11 @@ import Footer from "../../components/footer";
 
 export default function ProductDetail() {
   const product = {
-    name: "YOASOBI CONCERT IN YOKOHAMA, JAPAN",
+    name: "Visit rural papua and participate in their daily lives",
     price: 11000.0,
     description:
-      "YOASOBI's debut song ''Into The Night'' released in 2019 topped various streaming charts in Japan and was also ranked on viral charts in several countries. The song topped the Billboard JAPAN Comprehensive Song Chart/Streaming Song Chart in 2020 and surpassed 1 billion streaming plays for the first time in Japan in September 2023.",
-    imageUrl: "/images/ys.jpeg",
+      "Papua is the eastern part of Indonesia. wonder what their lives are like? Then participate in their life and feel the sensation. You'll feel what they've been feeling all along.",
+    imageUrl: "/images/pp.jpg",
     inStock: true,
   };
   return (

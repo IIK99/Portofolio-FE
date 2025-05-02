@@ -17,33 +17,33 @@ interface Product {
 const initialProducts: Product[] = [
   {
     id: 1,
-    image: "/images/ts.jpg",
+    image: "/images/okt.jpg",
     description:
-      "Tailor Swift\nComing soon 19 May 2024\nConcert in Jakarta - Indonesia",
-    price: 900000,
+      "Orangutan conservation\nComing soon 19 May 2025\nForest in Kalimantan - Indonesia",
+    price: 2400000,
     stock: 100,
   },
   {
     id: 2,
-    image: "/images/ys.jpeg",
+    image: "/images/mrk.jpg",
     description:
-      "Yoasobi\nComing soon 08 July 2024\nConcert in Yokohama - Japan",
+      "Merak Perfrom\nComing soon 08 July 2025\nTMII in Jakarta - Indonesia",
     price: 1100000,
     stock: 100,
   },
   {
     id: 3,
-    image: "/images/kk.jpg",
+    image: "/images/lomb.jpg",
     description:
-      "Joji\nComing soon 20 September 2024\nConcert in Sydney - Australia",
+      "Enjoy The Beauty of Nature\nComing soon 20 September 2025\nButon Land in Sulawesi - Indonesia",
     price: 750000,
     stock: 100,
   },
   {
     id: 4,
-    image: "/images/st.jpg",
+    image: "/images/hkt.jpg",
     description:
-      "The Weekend\nComing soon 15 December 2024\nConcert in LA - America",
+      "Nature Conservation\nComing soon 15 December 2025\nMajalengka in JABAR - Indonesia",
     price: 550000,
     stock: 100,
   },
@@ -497,7 +497,7 @@ export default function AdminDashboard() {
           </div>
         </div>
       )}
-      <Footer/>
+      <Footer />
     </>
   );
 }

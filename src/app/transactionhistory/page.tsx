@@ -331,7 +331,6 @@ export default function TransactionHistory() {
               </ChartContainer>
             </CardContent>
           </Card>
-          {/* <Page /> */}
         </div>
       </div>
       <Footer />

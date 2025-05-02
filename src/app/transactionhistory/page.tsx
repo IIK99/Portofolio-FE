@@ -26,7 +26,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import Page from "../dashboard/page";
 
 type Transaction = {
   date: string;

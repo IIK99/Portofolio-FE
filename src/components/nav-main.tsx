@@ -11,16 +11,16 @@ import { Button } from "@/components/ui/button"
 //   SidebarMenuItem,
 // } from "@/components/ui/sidebar"
 
-export function NavMain({
-  items,
-}: {
-  items: {
-    title: string
-    url: string
-    icon?: LucideIcon
-  }[]
-}) {
-  return (
+// export function NavMain({
+//   items,
+// }: {
+//   items: {
+//     title: string
+//     url: string
+//     icon?: LucideIcon
+//   }[]
+// }) {
+//   return (
     // <SidebarGroup>
     //   <SidebarGroupContent className="flex flex-col gap-2">
     //     <SidebarMenu>
@@ -54,5 +54,5 @@ export function NavMain({
     //     </SidebarMenu>
     //   </SidebarGroupContent>
     // </SidebarGroup>
-  )
-}
+//   )
+// }

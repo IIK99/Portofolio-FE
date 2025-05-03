@@ -29,7 +29,7 @@ export default function NavbarHome({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleScroll = () => {
-    setIsScrolled(window.scrollY > 0);
+    setIsScrolled(window.scrollY > 3);
   };
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function NavbarHome({
     <motion.nav
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 3 }}
       className={`fixed top-0 z-30 w-full transition-colors duration-500 ${
         isScrolled ? "bg-gray-900 shadow-md" : "bg-transparent"
       }`}

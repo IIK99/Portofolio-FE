@@ -81,7 +81,7 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 5, delay: 3    }}
+          transition={{ duration: 5, delay: 3 }}
         >
           <Link
             href="#cards-view"

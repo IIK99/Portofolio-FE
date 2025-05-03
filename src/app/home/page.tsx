@@ -450,18 +450,26 @@ export default function App() {
         id="cards-view"
         className="py-10 bg-gradient-to-tl from-[#c31432] to-[#240b36]"
       >
-        <h2 className="text-4xl font-bold pt-7 text-white text-center mb-10 tracking-wide">
+        <motion.h2
+          className="text-4xl font-bold pt-7 text-white text-center mb-10 tracking-wide"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
           OUR GALLERY
-        </h2>
+        </motion.h2>
+
         <div className="  flex w-full justify-center gap-2 relative">
           {/* ini sidebar */}
           <Filter show={showFilter} setShow={setShowFilter} />
+
           {/* ini cards */}
           <div className="cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
             {filteredCards.map((member, index) => (
               <motion.div
                 key={index}
-                className="w-64 h-96 relative bg-white shadow-lg rounded-lg overflow-hidden"
+                className="w-full sm:w-64 h-96 relative bg-white shadow-lg rounded-lg overflow-hidden"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ scale: 1.05 }}
@@ -504,7 +512,14 @@ export default function App() {
           </div>
         </div>
       </div>
-      <Footer />
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <Footer />
+      </motion.div>
     </>
   );
 }

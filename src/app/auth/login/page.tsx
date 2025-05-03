@@ -11,6 +11,7 @@ export default function Page() {
   const togglePasswordVisibility = () => {
     setIsPasswordShown(!isPasswordShown);
   };
+
   return (
     <>
       <NavbarHome />
@@ -19,67 +20,69 @@ export default function Page() {
         Your browser does not support the audio element.
       </audio>
       <div
-        className=" bg-cover bg-no-repeat bg-center z-0"
+        className="bg-cover bg-no-repeat bg-center min-h-screen"
         style={{ backgroundImage: "url('/images/br.jpg')" }}
       >
-        <div className="flex flex-col justify-center items-center min-h-screen text-sm p-3">
-          <div className=" text-center pb-9">
-            <h1 className="font-extrabold text-white text-[45px] pb-4">
+        <div className="flex flex-col justify-center items-center min-h-screen text-sm px-4 sm:px-6 py-8">
+          <div className="text-center pb-9">
+            <h1 className="font-extrabold text-white text-[32px] sm:text-[45px] pb-4">
               Welcome to ticketing.com
             </h1>
-            <p className=" text-white text-xl font-semibold underline tracking-wide">
+            <p className="text-white text-lg sm:text-xl font-semibold underline tracking-wide">
               The safest and most trusted travel event ticket sales site
             </p>
           </div>
-          <div className="flex flex-col max-[440px] p-5 rounded-xl bg-black bg-opacity-70">
-            <h1 className=" text-3xl font-semibold text-white">
+
+          <div className="flex flex-col w-full max-w-md p-6 rounded-xl bg-black bg-opacity-70 shadow-lg">
+            <h1 className="text-2xl sm:text-3xl font-semibold text-white mb-1">
               Enter your account
             </h1>
-            <p className="text-[#989898] text-[13px]">
+            <p className="text-[#989898] text-[13px] mb-4">
               To be able to book tickets and make payments you must first login
             </p>
 
-            <div className=" font-bold mt-5 text-white">Email</div>
+            <label className="font-bold text-white mt-2">Email</label>
             <input
               type="email"
               placeholder="ticketing@mail.com"
-              className="p-3 bg-[#F3F4F6] rounded-lg"
+              className="p-3 bg-[#F3F4F6] rounded-lg mt-1"
             />
 
-            <div className=" font-bold mt-5 text-white">Password</div>
-            <div className="p-3 flex bg-[#F3F4F6] rounded-lg w-full">
+            <label className="font-bold text-white mt-5">Password</label>
+            <div className="p-3 flex items-center bg-[#F3F4F6] rounded-lg w-full mt-1">
               <input
                 type={isPasswordShown ? "text" : "password"}
                 id="password"
-                className="w-full  bg-[#F3F4F6] outline-none"
+                className="w-full bg-[#F3F4F6] outline-none"
               />
               <button
                 onClick={togglePasswordVisibility}
                 type="button"
-                className="ml-2"
+                className="ml-2 text-gray-700"
               >
                 {isPasswordShown ? <FaEye /> : <FaEyeSlash />}
               </button>
             </div>
 
             <div className="mt-4 text-xs text-white">
-              Dont have an account?{" "}
-              <Link href="/auth/register" className=" text-[#FF0000] font-bold">
+              Don’t have an account?{" "}
+              <Link href="/auth/register" className="text-[#FF0000] font-bold">
                 Register
               </Link>
             </div>
+
             <button
-              className="rounded-lg mt-2 text-white bg-[#FF0000] h-16 font-semibold text-lg hover:underline hover:bg-[#690003]"
-              // onClick={login}
+              className="rounded-lg mt-4 text-white bg-[#FF0000] h-12 font-semibold text-lg hover:underline hover:bg-[#690003] transition"
             >
               Sign in
             </button>
-            <div className="flex items-center justify-center gap-4 mt-4">
-              <button className="flex items-center gap-2 px-4 py-2 bg-white text-black rounded-lg shadow hover:bg-black-800 transition">
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mt-4">
+              <button className="flex items-center justify-center gap-2 px-4 py-2 bg-white text-black rounded-lg shadow hover:bg-gray-200 transition w-full">
                 <FaGoogle className="text-xl" />
                 <span className="text-sm font-medium">Login with Google</span>
               </button>
-              <button className="flex items-center gap-2 px-4 py-2 bg-[#0d2dfd] text-white rounded-lg shadow hover:bg-[#1877F2] transition">
+              <button className="flex items-center justify-center gap-2 px-4 py-2 bg-[#0d2dfd] text-white rounded-lg shadow hover:bg-[#1877F2] transition w-full">
                 <FaFacebookF className="text-xl" />
                 <span className="text-sm font-medium">Login with Facebook</span>
               </button>

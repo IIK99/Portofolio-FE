@@ -93,6 +93,7 @@ export default function AdminDashboard() {
         stock: 0,
         price: 0,
       });
+      setAlertMessage("Successfully Added!");
     } else {
       alert("Please fill in all fields.");
     }
@@ -170,32 +171,50 @@ export default function AdminDashboard() {
       );
       setIsModalOpen(false);
       setProductToDelete(null);
+      setAlertMessage("Successfully Deleted!");
     }
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const [alertMessage, setAlertMessage] = useState<string | null>(null);
+
   return (
     <>
       <AdminNavbar />
       <div className="pt-16">
+        {alertMessage && (
+          <div className="container mx-auto px-4 mt-4">
+            <div
+              className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
+              role="alert"
+            >
+              <span className="block sm:inline">{alertMessage}</span>
+              <span
+                className="absolute top-0 bottom-0 right-0 px-4 py-3"
+                onClick={() => setAlertMessage(null)}
+                style={{ cursor: "pointer" }}
+              >
+                ×
+              </span>
+            </div>
+          </div>
+        )}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-4 text-2xl sm:text-3xl font-semibold text-gray-700 underline">
             Hello Admin
           </div>
-          <div className="mb-8 flex items-center">
-            <div className="flex-grow">
-              <input
-                type="text"
-                className="w-96 p-2 border rounded-md hover:border-cyan-500 hover:drop-shadow-lg"
-                placeholder="Type any products here"
-                // onChange={}
-              />
-            </div>
+          <div className="mb-8 flex flex-wrap sm:flex-nowrap items-center gap-2">
+            <input
+              type="text"
+              className="w-full sm:w-96 p-2 border rounded-md hover:border-cyan-500 hover:drop-shadow-lg"
+              placeholder="Type any products here"
+            />
             <button
               type="button"
-              className="ml-4 p-2 text-xl font-semibold rounded-md bg-gray-300 hover:bg-gray-500 text-black hover:ring-2 hover:ring-blue-500 hover:drop-shadow-lg"
+              className="w-full sm:w-auto p-2 text-xl font-semibold rounded-md bg-gray-300 hover:bg-gray-500 text-black hover:ring-2 hover:ring-blue-500 hover:drop-shadow-lg"
               onClick={handleCreateClick}
             >
               Create
@@ -364,7 +383,7 @@ export default function AdminDashboard() {
               <div className="flex justify-end">
                 <button
                   type="button"
-                  className="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-gray-500 text-base leading-6 font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+                  className="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-red-500 text-base leading-6 font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray transition ease-in-out duration-150 sm:text-sm sm:leading-5"
                   onClick={() => setIsCreateModalOpen(false)}
                 >
                   Cancel
@@ -387,7 +406,7 @@ export default function AdminDashboard() {
           <div className="bg-white p-5 rounded-lg shadow-lg max-w-sm mx-auto">
             <div className="mt-3 text-center">
               <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100">
-                <AiFillDelete className="h-6 w-6 text-red-600" />
+                <AiFillDelete className="h-6 w-6 text-red-800" />
               </div>
               <h3 className="text-lg leading-6 font-medium text-gray-900">
                 Delete Product

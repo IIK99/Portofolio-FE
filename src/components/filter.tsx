@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React from "react";
 import { FiSearch } from "react-icons/fi";
 import { IoCloseOutline } from "react-icons/io5";
@@ -7,45 +7,45 @@ interface FilterSidebarProps {
   show: boolean;
   setShow: (show: boolean) => void;
 }
-
 export default function Filter({ show, setShow }: FilterSidebarProps) {
   return (
     <>
-      {/* Sidebar */}
       <div
-        className={`fixed lg:static top-0 left-0 z-40 bg-white border-r-2 border-gray-200 w-64 lg:w-[270px] h-full lg:h-auto transform transition-transform duration-300 ease-in-out
-        ${show ? "translate-x-0" : "-translate-x-full lg:translate-x-0"} 
-        flex flex-col rounded-r-lg shadow-lg lg:shadow-none overflow-y-auto`}
+        className={`absolute top-16 lg:static inset-y-0 left-0 lg:translate-x-0 transform ${
+          show ? "translate-x-0" : "-translate-x-full lg:translate-x-0 "
+        } flex-col lg:flex w-64 lg:w-[270px] lg:h-1/2 sm:h-[550px] border-2 border-gray-200 bg-white rounded-md z-20 transition-transform duration-500 ease-in-out`}
       >
-        <div className="flex items-center justify-between bg-blue-400 px-4 py-3 sticky top-0 z-10">
-          <h2 className="font-extrabold text-xl tracking-wide text-white">
-            Filter
-          </h2>
+        <div className="flex items-center justify-between bg-blue-400 px-4 py-2 rounded-t-md">
+          <h2 className="font-extrabold text-2xl tracking-wide">Filter</h2>
           <IoCloseOutline
-            className="lg:hidden w-8 h-8 cursor-pointer text-white"
+            className="lg:hidden w-10 h-10 cursor-pointer"
             onClick={() => setShow(false)}
           />
         </div>
-
-        {/* Search */}
-        <div className="px-4 py-3 flex flex-col gap-2">
+        <div className="px-4 py-2 mt-3 flex flex-col gap-2">
           <span className="font-medium text-lg">Search</span>
-          <form className="flex h-12 bg-white rounded-lg border border-gray-300">
-            <input
-              type="text"
-              placeholder="Find by title"
-              className="w-full px-3 text-base focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="bg-blue-400 px-3 flex items-center justify-center rounded-r-lg"
-            >
-              <FiSearch className="h-5 w-5 text-white" />
-            </button>
-          </form>
+          <div className="h-12 w-full bg-gradient-primary rounded-lg border border-gray-200 hover:border-gray-800 p-[1px]">
+            <form className="h-full w-full bg-white rounded-lg flex justify-between items-center">
+              <div className="w-[95%] px-3">
+                <input
+                  type="text"
+                  placeholder="Find by title"
+                  className="w-full text-base focus:outline-none focus:ring-0"
+                />
+              </div>
+              <div className="h-full w-[20%] bg-blue-400 flex justify-center bg-gradient-primary rounded-e-lg">
+                <button
+                  type="submit"
+                  className="h-full w-9 flex justify-center items-center p-[1px]"
+                >
+                  <FiSearch className="h-6 w-6 text-white" />
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-
-        {/* Categories */}
+        <hr className="h-[1.2px] bg-gray-300 my-3" />
+        {/* category */}
         <hr className="my-2" />
         <div className="px-4 py-2 flex flex-col gap-2">
           <span className="font-medium text-lg">Categories</span>
@@ -66,32 +66,27 @@ export default function Filter({ show, setShow }: FilterSidebarProps) {
             ))}
           </ul>
         </div>
-
-        {/* Sort */}
-        <hr className="my-2" />
-        <div className="px-4 py-2 mb-6 flex flex-col gap-2">
+        <hr className="h-[1.2px] bg-gray-300 my-3" />
+        {/* sort */}
+        <div className="px-4 py-2 flex flex-col gap-2 mb-7">
           <label htmlFor="sort" className="font-medium text-lg">
             Sort
           </label>
-          <select className="border border-gray-300 rounded-lg p-2 focus:ring-1 focus:ring-gray-400">
+          <select className="bg-white border border-gray-200 text-gray-900 rounded-lg focus:ring-gray-400 focus:border-gray-400 block w-full p-2">
             <option value="">Random</option>
-            <option value="ASCENDING">Date Latest</option>
-            <option value="DESCENDING">Date Oldest</option>
-            <option value="HIGHEST">Highest Price</option>
-            <option value="LOWEST">Lowest Price</option>
+            <option value="ASCENDING">Date Lates</option>
+            <option value="DISCENDING">date Lowes</option>
+            <option value="HIGHEST">Highest Priced</option>
+            <option value="LOWEST">Lowest Priced</option>
           </select>
         </div>
       </div>
-
-      {/* Toggle button for mobile */}
-      {!show && (
-        <button
-          className="lg:hidden fixed bottom-5 left-5 z-50 bg-blue-500 p-3 rounded-full shadow-lg"
-          onClick={() => setShow(true)}
-        >
-          <FiSearch className="text-white w-6 h-6" />
-        </button>
-      )}
+      <FiSearch
+        className={`h-10 w-20 p-2 rounded-sm mt-48 absolute left-0 text-white bg-sky-600 lg:hidden ${
+          show ? "hidden" : ""
+        } `}
+        onClick={() => setShow(true)}
+      />
     </>
   );
 }

@@ -1,0 +1,421 @@
+{
+    "cards": [
+      {
+        "name": "Aceh",
+        "des": "Islamic City",
+        "image": "/images/aceh.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Tempat Bersejarah"
+      },
+      {
+        "name": "Jakarta",
+        "des": "Metropolitan",
+        "image": "/images/jk.jpg",
+        "price": "IDR 50",
+        "rating": 4,
+        "type": "Tempat Bersejarah"
+      },
+      {
+        "name": "Bromo",
+        "des": "Love Sunset/Sunlight",
+        "image": "/images/br.jpg",
+        "price": "IDR 1000",
+        "rating": 4,
+        "type": "Pantai/Gunung"
+      },
+      {
+        "name": "Forest Kalimantan",
+        "des": "The lungs of the world",
+        "image": "/images/hkt.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Pantai/Gunung"
+      },
+      {
+        "name": "Floating Market Kalimantan",
+        "des": "Traditional market",
+        "image": "/images/kt.jpg",
+        "price": "IDR 100",
+        "rating": 4,
+        "type": "Makanan Khas"
+      },
+      {
+        "name": "Suku Dayak",
+        "des": "Don't be afraid they are good ",
+        "image": "/images/kt1.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Suku & Budaya"
+      },
+      {
+        "name": "Bekantan",
+        "des": "Monkey with big noise",
+        "image": "/images/ktm1.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Pantai/Gunung"
+      },
+      {
+        "name": "Spring Water",
+        "des": "Brrrzzz",
+        "image": "/images/lomb.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Pantai/Gunung"
+      },
+      {
+        "name": "Children of Papua",
+        "des": "They are so cute",
+        "image": "/images/ap.jpg",
+        "price": "Not for sale",
+        "rating": 4,
+        "type": "Suku & Budaya"
+      },
+      {
+        "name": "Gamelan",
+        "des": "Relaxation",
+        "image": "/images/gjw.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Suku & Budaya"
+      },
+      {
+        "name": "Traditional Music",
+        "des": "Make you calm",
+        "image": "/images/gm.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Suku & Budaya"
+      },
+      {
+        "name": "NTB",
+        "des": "Beautiful place",
+        "image": "/images/lombok.jpg",
+        "price": "IDR 2500",
+        "rating": 4,
+        "type": "Suku & Budaya"
+      },
+      {
+        "name": "Traditional Bali Dance",
+        "des": "It's so good and unique",
+        "image": "/images/mbl.jpg",
+        "price": "IDR 5000",
+        "rating": 4,
+        "type": "Suku & Budaya"
+      },
+      {
+        "name": "Undersea Beauty",
+        "des": "I love it",
+        "image": "/images/ntb.jpg",
+        "price": "IDR 1500",
+        "rating": 4,
+        "type": "Pantai/Gunung"
+      },
+      {
+        "name": "Sea of NTT",
+        "des": "Make you happy",
+        "image": "/images/ntb1.jpg",
+        "price": "IDR 2000",
+        "rating": 4,
+        "type": "Pantai/Gunung"
+      },
+      {
+        "name": "Traditional House of NTT",
+        "des": "Curious about living there?",
+        "image": "/images/ntt.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Suku & Budaya"
+      },
+      {
+        "name": "Beautiful Sea",
+        "des": "A lot of fish",
+        "image": "/images/nttl.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Pantai/Gunung"
+      },
+      {
+        "name": "Komodo",
+        "des": "Make you scared",
+        "image": "/images/ntttt.jpg",
+        "price": "IDR 1500",
+        "rating": 4,
+        "type": "Pantai/Gunung"
+      },
+      {
+        "name": "Orang Utan",
+        "des": "They are almost extinct ",
+        "image": "/images/okt.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Pantai/Gunung"
+      },
+      {
+        "name": "Beautiful Girl of Papua",
+        "des": "Cute",
+        "image": "/images/pap.jpg",
+        "price": "Not for sale",
+        "rating": 4,
+        "type": "Suku & Budaya"
+      },
+      {
+        "name": "Komodo Land",
+        "des": "🤫 Sttt",
+        "image": "/images/pk.jpg",
+        "price": "IDR 1500",
+        "rating": 4,
+        "type": "Pantai/Gunung"
+      },
+      {
+        "name": "Man of Papua",
+        "des": "Uniqe",
+        "image": "/images/pp.jpg",
+        "price": "Not for sale",
+        "rating": 4,
+        "type": "Suku & Budaya"
+      },
+      {
+        "name": "Traditional House",
+        "des": "😍",
+        "image": "/images/rnt.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Suku & Budaya"
+      },
+      {
+        "name": "NTT",
+        "des": "Want to live there?",
+        "image": "/images/rntt.jpg",
+        "price": "IDR 200",
+        "rating": 4,
+        "type": "Suku & Budaya"
+      },
+      {
+        "name": "Reog Ponorogo",
+        "des": "My tooth hurts",
+        "image": "/images/rp.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Suku & Budaya"
+      },
+      {
+        "name": "Traditional House of Sulawesi",
+        "des": "Amaizing",
+        "image": "/images/rtora.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Suku & Budaya"
+      },
+      {
+        "name": "Suku Baduy",
+        "des": "I like hooney",
+        "image": "/images/sb.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Suku & Budaya"
+      },
+      {
+        "name": "Surabaya",
+        "des": "Fight",
+        "image": "/images/sby1.jpg",
+        "price": "IDR 1500",
+        "rating": 4,
+        "type": "Tempat Bersejarah"
+      },
+      {
+        "name": "Sulawesi",
+        "des": "Beatiful Place",
+        "image": "/images/sula.jpg",
+        "price": "IDR 23000",
+        "rating": 4,
+        "type": "Pantai/Gunung"
+      },
+      {
+        "name": "Children of Sulawesi",
+        "des": "Cute",
+        "image": "/images/sulawe.jpg",
+        "price": "Not for sale",
+        "rating": 4,
+        "type": "Suku & Budaya"
+      },
+      {
+        "name": "Beatiful beach",
+        "des": "⭐",
+        "image": "/images/sulawesi.jpg",
+        "price": "IDR 2000",
+        "rating": 4,
+        "type": "Pantai/Gunung"
+      },
+      {
+        "name": "Beatiful Lake",
+        "des": "Cool",
+        "image": "/images/sumat.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Pantai/Gunung"
+      },
+      {
+        "name": "Traditional Sumsel Dance",
+        "des": "Nice dance",
+        "image": "/images/sumsel.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Suku & Budaya"
+      },
+      {
+        "name": "Rice Field",
+        "des": "Source of life",
+        "image": "/images/sw.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Makanan Khas"
+      },
+      {
+        "name": "Kecak Dance",
+        "des": "😍 I love it",
+        "image": "/images/tbl.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Suku & Budaya"
+      },
+      {
+        "name": "Suku Toraja",
+        "des": "Nice place",
+        "image": "/images/tor.jpg",
+        "price": "Free",
+        "rating": 4,
+        "type": "Suku & Budaya"
+      },
+      {
+        "name": "Merak",
+        "des": "Beatiful",
+        "image": "/images/mrk.jpg",
+        "price": "IDR 25",
+        "rating": 4,
+        "type": "Pantai/Gunung"
+      },
+      {
+        "name": "Borobudur",
+        "des": "Archa",
+        "image": "/images/cd1.jpg",
+        "price": "IDR 2000",
+        "rating": 4,
+        "type": "Tempat Bersejarah"
+      },
+      {
+        "name": "Prambanan",
+        "des": "Archa",
+        "image": "/images/cka.jpg",
+        "price": "IDR 2000",
+        "rating": 4,
+        "type": "Tempat Bersejarah"
+      },
+      {
+        "name": "Martabak Mini",
+        "des": "Love it 😍",
+        "image": "/images/cu.jpg",
+        "price": "IDR 10",
+        "rating": 4,
+        "type": "Makanan Khas"
+      },
+      {
+        "name": "Gudeg",
+        "des": "Too sweet",
+        "image": "/images/gud.jpg",
+        "price": "IDR 25",
+        "rating": 4,
+        "type": "Makanan Khas"
+      },
+      {
+        "name": "Indomie",
+        "des": "Everyone like this 🤭",
+        "image": "/images/in.jpg",
+        "price": "IDR 5",
+        "rating": 4,
+        "type": "Makanan Khas"
+      },
+      {
+        "name": "Rendang",
+        "des": "Top 1 in the world",
+        "image": "/images/dar.jpg",
+        "price": "IDR 45",
+        "rating": 4,
+        "type": "Makanan Khas"
+      },
+      {
+        "name": "Salad Indonesia",
+        "des": "Spicy 🔥🔥🔥",
+        "image": "/images/la.jpg",
+        "price": "IDR 30",
+        "rating": 4,
+        "type": "Makanan Khas"
+      },
+      {
+        "name": "Bacang",
+        "des": "Lontong cone",
+        "image": "/images/lon.jpg",
+        "price": "IDR 15",
+        "rating": 4,
+        "type": "Makanan Khas"
+      },
+      {
+        "name": "Tumpeng",
+        "des": "Rice cone",
+        "image": "/images/na.jpg",
+        "price": "IDR 250",
+        "rating": 4,
+        "type": "Makanan Khas"
+      },
+      {
+        "name": "Pempek",
+        "des": "From palembang sumsel",
+        "image": "/images/pem.jpg",
+        "price": "IDR 20",
+        "rating": 4,
+        "type": "Makanan Khas"
+      },
+      {
+        "name": "Satai Marangi",
+        "des": "Like it",
+        "image": "/images/sa.jpg",
+        "price": "IDR 50",
+        "rating": 4,
+        "type": "Makanan Khas"
+      },
+      {
+        "name": "Satai Padang",
+        "des": "Beef",
+        "image": "/images/sate.jpg",
+        "price": "IDR 45",
+        "rating": 4,
+        "type": "Makanan Khas"
+      },
+      {
+        "name": "Soto",
+        "des": "Love it",
+        "image": "/images/so.jpg",
+        "price": "IDR 20",
+        "rating": 4,
+        "type": "Makanan Khas"
+      },
+      {
+        "name": "Gulai Fish",
+        "des": "Like fish",
+        "image": "/images/soi.jpg",
+        "price": "IDR 45",
+        "rating": 4,
+        "type": "43"
+      },
+      {
+        "name": "Desert Traditional",
+        "des": "I love it 😍😍😍",
+        "image": "/images/tra.jpg",
+        "price": "IDR 10",
+        "rating": 4,
+        "type": "Makanan Khas"
+      }
+    ]
+  }
+  

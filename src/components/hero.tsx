@@ -17,7 +17,7 @@ export default function HeroSection() {
     <div className="relative h-screen overflow-hidden flex flex-col items-center justify-center pt-16">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
-        src="/videos/bg.mp4"
+        src="videos/bg.mp4"
         autoPlay
         loop
         // muted

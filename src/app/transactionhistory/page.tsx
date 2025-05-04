@@ -32,7 +32,6 @@ const transactions: Transaction[] = [
   },
 ];
 
-
 export default function TransactionHistory() {
   return (
     <>

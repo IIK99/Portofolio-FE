@@ -1,4 +1,5 @@
 "use client"
+
 import React from "react";
 import { FiSearch } from "react-icons/fi";
 import { IoCloseOutline } from "react-icons/io5";

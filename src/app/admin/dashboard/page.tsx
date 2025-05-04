@@ -1,18 +1,16 @@
 "use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
-import AdminNavbar from "../../../components/navbarAdmin";
-import Pagination from "../../../components/pagination";
-import Footer from "../../../components/footer";
-
-interface Product {
-  id: number;
-  image: string;
-  description: string;
-  price: number | null;
-  stock: number | null;
-}
+import AdminNavbar from "@/components/navbarAdmin";
+import Pagination from "@/components/pagination";
+import Footer from "@/components/footer";
+import { Product } from "@/components/types";
+import CreateModal from "@/components/modals/create";
+import EditModal from "@/components/modals/edit";
+import DeleteModal from "@/components/modals/delete";
+import toast, { Toaster } from 'react-hot-toast';
 
 const initialProducts: Product[] = [
   {
@@ -56,112 +54,41 @@ export default function AdminDashboard() {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [productToEdit, setProductToEdit] = useState<Product | null>(null);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
-  const [newProduct, setNewProduct] = useState({
-    image: "",
-    description: "",
-    stock: 0,
-    price: 0,
-  });
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 2;
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
-    // Implementasikan logika untuk mengambil data halaman baru di sini
   };
 
-  const handleCreateClick = () => {
-    setIsCreateModalOpen(true);
-  };
-
-  const addNewProduct = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (
-      newProduct.image &&
-      newProduct.description &&
-      newProduct.stock &&
-      newProduct.price
-    ) {
-      setProducts([
-        ...products,
-        { ...newProduct, id: Math.max(...products.map((p) => p.id)) + 1 },
-      ]);
-      setIsCreateModalOpen(false);
-      setNewProduct({
-        image: "",
-        description: "",
-        stock: 0,
-        price: 0,
-      });
-      setAlertMessage("Successfully Added!");
-    } else {
-      alert("Please fill in all fields.");
-    }
-  };
-
-  const handleEditClick = (product: Product) => {
-    setProductToEdit(product);
-    setIsEditModalOpen(true);
-  };
-
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const fileReader = new FileReader();
-
-      fileReader.onload = (loadEvent) => {
-        const result = loadEvent.target?.result;
-        if (typeof result === "string") {
-          setProductToEdit((prev) => {
-            return prev ? { ...prev, image: result } : null;
-          });
-        }
-      };
-
-      fileReader.readAsDataURL(e.target.files[0]);
-    }
-  };
-
-  const handleEditChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setProductToEdit((prev) => {
-      if (prev === null) return null;
-
-      let newValue: string | number | null = value;
-      if (name === "price" || name === "stock") {
-        newValue = value === "" ? null : Number(value);
-      }
-
-      const updatedProduct = {
-        ...prev,
-        [name]: newValue,
-      } as Product;
-
-      return updatedProduct;
+  const addNewProduct = (newProductData: Omit<Product, "id">) => {
+    setProducts([
+      ...products,
+      { ...newProductData, id: Math.max(...products.map((p) => p.id)) + 1 },
+    ]);
+    toast.success('Data has been added', { 
+      // icon: '✅',
+      style: {
+        background: '#4CAF50',
+        color: '#fff',
+      },
+      position: 'top-center'
     });
   };
 
-  const submitEdit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (productToEdit) {
-      setProducts((prevProducts) => {
-        return prevProducts.map((p) => {
-          if (p.id === productToEdit.id) {
-            return { ...p, ...productToEdit };
-          }
-          return p;
-        });
-      });
-
-      setIsEditModalOpen(false);
-    }
-  };
-
-  const handleDeleteClick = (product: Product) => {
-    setProductToDelete(product);
-    setIsModalOpen(true);
+  const handleSaveEdit = (updatedProduct: Product) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((p) => (p.id === updatedProduct.id ? updatedProduct : p))
+    );
+    setIsEditModalOpen(false);
+    toast('Data has been updated', { 
+      // icon: 'ℹ️',
+      style: {
+        background: '#2196F3',
+        color: '#fff',
+      },
+      position: 'top-center'
+    });
   };
 
   const confirmDelete = () => {
@@ -170,38 +97,39 @@ export default function AdminDashboard() {
         prevProducts.filter((p) => p.id !== productToDelete.id)
       );
       setIsModalOpen(false);
-      setProductToDelete(null);
-      setAlertMessage("Successfully Deleted!");
+      toast.error('Data has been deleted', { 
+        // icon: '❌',
+        style: {
+          background: '#F44336',
+          color: '#fff',
+        },
+        position: 'top-center'
+      });
     }
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
+  // Handle Create
+  const handleCreateClick = () => {
+    setIsCreateModalOpen(true);
   };
 
-  const [alertMessage, setAlertMessage] = useState<string | null>(null);
+  // Handle Edit
+  const handleEditClick = (product: Product) => {
+    setProductToEdit(product);
+    setIsEditModalOpen(true);
+  };
+
+  // Handle Delete
+  const handleDeleteClick = (product: Product) => {
+    setProductToDelete(product);
+    setIsModalOpen(true);
+  };
 
   return (
     <>
+      <Toaster />
       <AdminNavbar />
       <div className="pt-16">
-        {alertMessage && (
-          <div className="container mx-auto px-4 mt-4">
-            <div
-              className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
-              role="alert"
-            >
-              <span className="block sm:inline">{alertMessage}</span>
-              <span
-                className="absolute top-0 bottom-0 right-0 px-4 py-3"
-                onClick={() => setAlertMessage(null)}
-                style={{ cursor: "pointer" }}
-              >
-                ×
-              </span>
-            </div>
-          </div>
-        )}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-4 text-2xl sm:text-3xl font-semibold text-gray-700 underline">
             Hello Admin
@@ -281,241 +209,24 @@ export default function AdminDashboard() {
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
-      {/* Modal Create */}
-      {isCreateModalOpen && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
-          <div
-            className="bg-white p-5 rounded-lg shadow-lg w-full max-w-2xl mx-4 my-8 overflow-y-auto"
-            style={{ maxHeight: "90vh" }}
-          >
-            <h3 className="text-lg leading-6 font-medium underline text-gray-900 mb-4">
-              Create Product
-            </h3>
-            <form onSubmit={addNewProduct}>
-              {/* Input for Product Image */}
-              <div className="mb-4">
-                <label htmlFor="new-image" className="block mb-2">
-                  Product Image:
-                </label>
-                <input
-                  type="file"
-                  id="new-image"
-                  onChange={(e) => {
-                    const file = e.target.files?.[0];
-                    if (file) {
-                      const reader = new FileReader();
-                      reader.onload = (loadEvent) => {
-                        setNewProduct((prev) => ({
-                          ...prev,
-                          image: loadEvent.target?.result as string,
-                        }));
-                      };
-                      reader.readAsDataURL(file);
-                    }
-                  }}
-                  required
-                />
-              </div>
+      <CreateModal
+        isOpen={isCreateModalOpen}
+        onClose={() => setIsCreateModalOpen(false)}
+        onCreate={addNewProduct}
+      />
 
-              {/* Input for Product Description */}
-              <div className="mb-4">
-                <label htmlFor="new-description" className="block mb-2">
-                  Description:
-                </label>
-                <textarea
-                  id="new-description"
-                  name="description"
-                  className="w-full p-2 border rounded-md"
-                  value={newProduct.description}
-                  onChange={(e) =>
-                    setNewProduct({
-                      ...newProduct,
-                      description: e.target.value,
-                    })
-                  }
-                  required
-                />
-              </div>
+      <EditModal
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        product={productToEdit}
+        onSave={handleSaveEdit}
+      />
 
-              {/* Input for Product Stock */}
-              <div className="mb-4">
-                <label htmlFor="new-stock" className="block mb-2">
-                  Stock:
-                </label>
-                <input
-                  type="number"
-                  id="new-stock"
-                  name="stock"
-                  className="w-full p-2 border rounded-md"
-                  value={newProduct.stock}
-                  onChange={(e) =>
-                    setNewProduct({
-                      ...newProduct,
-                      stock: Number(e.target.value),
-                    })
-                  }
-                  required
-                />
-              </div>
-
-              {/* Input for Product Price */}
-              <div className="mb-4">
-                <label htmlFor="new-price" className="block mb-2">
-                  Price:
-                </label>
-                <input
-                  type="number"
-                  id="new-price"
-                  name="price"
-                  className="w-full p-2 border rounded-md"
-                  value={newProduct.price}
-                  onChange={(e) =>
-                    setNewProduct({
-                      ...newProduct,
-                      price: Number(e.target.value),
-                    })
-                  }
-                  required
-                />
-              </div>
-
-              {/* Submit and Cancel Buttons */}
-              <div className="flex justify-end">
-                <button
-                  type="button"
-                  className="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-red-500 text-base leading-6 font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray transition ease-in-out duration-150 sm:text-sm sm:leading-5"
-                  onClick={() => setIsCreateModalOpen(false)}
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="ml-3 inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-blue-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5"
-                >
-                  Create
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* Modal delete */}
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white p-5 rounded-lg shadow-lg max-w-sm mx-auto">
-            <div className="mt-3 text-center">
-              <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100">
-                <AiFillDelete className="h-6 w-6 text-red-800" />
-              </div>
-              <h3 className="text-lg leading-6 font-medium text-gray-900">
-                Delete Product
-              </h3>
-              <div className="mt-2 px-7 py-3">
-                <p className="text-sm text-gray-500">
-                  Are you sure you want to delete this product?
-                </p>
-              </div>
-              <div className="items-center px-4 py-3">
-                <button
-                  id="delete-button"
-                  className="px-4 py-2 bg-red-500 text-white text-base font-medium rounded-md w-24 mr-2 hover:bg-red-700"
-                  onClick={confirmDelete}
-                >
-                  Delete
-                </button>
-                <button
-                  id="cancel-button"
-                  className="px-4 py-2 bg-gray-300 text-gray-700 text-base font-medium rounded-md w-24 hover:bg-gray-400"
-                  onClick={closeModal}
-                >
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-      {/* Modal for editing a product */}
-      {isEditModalOpen && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
-          <div
-            className="bg-white p-5 rounded-lg shadow-lg w-full max-w-2xl mx-4 my-8 overflow-y-auto"
-            style={{ maxHeight: "90vh" }}
-          >
-            <h3 className="text-lg leading-6 font-medium underline text-gray-900 mb-4">
-              Edit Product
-            </h3>
-            <form onSubmit={submitEdit}>
-              <label htmlFor="image-upload" className="block mb-2">
-                Product Image:
-              </label>
-              <input
-                type="file"
-                id="image-upload"
-                onChange={handleImageChange}
-              />
-              <div className="mb-4">
-                <label htmlFor="description" className="block mb-2">
-                  Description:
-                </label>
-                <textarea
-                  id="description"
-                  name="description"
-                  className="w-full p-2 border rounded-md"
-                  value={productToEdit?.description}
-                  onChange={handleEditChange}
-                />
-              </div>
-              <div className="grid grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label htmlFor="stock" className="block mb-2">
-                    Stock:
-                  </label>
-                  <input
-                    type="number"
-                    id="stock"
-                    name="stock"
-                    className="w-full p-2 border rounded-md"
-                    value={productToEdit?.stock ?? ""}
-                    onChange={handleEditChange}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="price" className="block mb-2">
-                    Price:
-                  </label>
-                  <input
-                    type="number"
-                    id="price"
-                    name="price"
-                    className="w-full p-2 border rounded-md"
-                    value={productToEdit?.price ?? ""}
-                    onChange={handleEditChange}
-                  />
-                </div>
-              </div>
-              <div className="mt-5 sm:mt-6">
-                <span className="flex w-full rounded-md shadow-sm">
-                  <button
-                    type="button"
-                    className="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-gray-500 text-base leading-6 font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray transition ease-in-out duration-150 sm:text-sm sm:leading-5"
-                    onClick={() => setIsEditModalOpen(false)}
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    className="ml-3 inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-blue-500 text-base leading-6 font-medium text-white shadow-sm hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5"
-                  >
-                    Save Changes
-                  </button>
-                </span>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
+      <DeleteModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={confirmDelete}
+      />
       <Footer />
     </>
   );

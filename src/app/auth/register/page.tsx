@@ -5,8 +5,6 @@ import NavbarHome from "@/components/navbarhome";
 import { useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle, FaFacebookF } from "react-icons/fa";
 
-
-
 export default function Page() {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
 
@@ -31,8 +29,8 @@ export default function Page() {
               Create a new account
             </h1>
             <p className="  text-[#989898] text-[13px]">
-              By registering, you can make payments and book the ticket booking
-              you want
+              By registering, you can make payments and book the tickets you
+              want.
             </p>
 
             <div className=" font-bold mt-5 text-white">First Name</div>
@@ -81,15 +79,6 @@ export default function Page() {
                 {isPasswordShown ? <FaEye /> : <FaEyeSlash />}
               </button>
             </div>
-            {/* <input
-              type="password"
-              className="p-3 bg-[#F3F4F6] rounded-lg"
-              // onChange={formik.handleChange}
-              id="password"
-              // value={formik.values.password}
-            ></input> */}
-            {/* <div className=" my-1 text-red-500">{formik.errors.password}</div> */}
-
             <div className=" font-bold mt-3 text-white">Re-Type Password</div>
             <div className="p-2 flex bg-[#F3F4F6] rounded-lg w-full">
               <input
@@ -105,23 +94,18 @@ export default function Page() {
                 {isPasswordShown ? <FaEye /> : <FaEyeSlash />}
               </button>
             </div>
-            {/* <input
-              type="password"
-              className="p-3 bg-[#F3F4F6] rounded-lg"
-              // onChange={formik.handleChange}
-              id="password"
-              // value={formik.values.password}
-            ></input> */}
-            {/* <div className=" my-1 text-red-500">{formik.errors.password}</div> */}
-
             <div className="flex items-center justify-center gap-4 mt-4">
               <button className="flex items-center gap-2 px-4 py-2 bg-white text-black rounded-lg shadow hover:bg-black-800 transition">
                 <FaGoogle className="text-xl" />
-                <span className="text-sm font-medium">Register with Google</span>
+                <span className="text-sm font-medium">
+                  Register with Google
+                </span>
               </button>
               <button className="flex items-center gap-2 px-4 py-2 bg-[#0d2dfd] text-white rounded-lg shadow hover:bg-[#1877F2] transition">
                 <FaFacebookF className="text-xl" />
-                <span className="text-sm font-medium">Register with Facebook</span>
+                <span className="text-sm font-medium">
+                  Register with Facebook
+                </span>
               </button>
             </div>
             <p className=" mt-5 text-[#989898] text-[13px]">

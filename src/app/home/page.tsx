@@ -18,7 +18,7 @@ type Card = {
   type: string;
 };
 
-    export default function App() {
+export default function App() {
       const [showFilter, setShowFilter] = useState(false);
       const [filteredCards, setFilteredCards] = useState<Card[]>(data.cards);
   

@@ -71,9 +71,7 @@ export default function Page() {
               </Link>
             </div>
 
-            <button
-              className="rounded-lg mt-4 text-white bg-[#FF0000] h-12 font-semibold text-lg hover:underline hover:bg-[#690003] transition"
-            >
+            <button className="rounded-lg mt-4 text-white bg-[#FF0000] h-12 font-semibold text-lg hover:underline hover:bg-[#690003] transition">
               Sign in
             </button>
 

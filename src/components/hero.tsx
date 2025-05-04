@@ -19,8 +19,8 @@ export default function HeroSection() {
         src="/videos/bg.mp4"
         autoPlay
         loop
-        // muted 
         playsInline
+        // muted 
       />
       <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-80 z-0" />
 

@@ -7,7 +7,7 @@ import HeroSection from "../../components/hero";
 import NavbarHome from "../../components/navbarhome";
 import Footer from "../../components/footer";
 import { motion } from "framer-motion";
-import data from "./data.json"
+import data from "./data.json";
 
 type Card = {
   name: string;
@@ -19,9 +19,33 @@ type Card = {
 };
 
 export default function App() {
-      const [showFilter, setShowFilter] = useState(false);
-      const [filteredCards, setFilteredCards] = useState<Card[]>(data.cards);
-  
+  const [showFilter, setShowFilter] = useState(false);
+  const [filteredCards, setFilteredCards] = useState<Card[]>(data.cards);
+  // Di komponen Home
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortOption, setSortOption] = useState("");
+
+  useEffect(() => {
+    let result = [...data.cards];
+
+    // Filter berdasarkan pencarian
+    if (searchQuery) {
+      result = result.filter(
+        (card) =>
+          card.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          card.des.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    // Filter berdasarkan kategori
+    if (selectedCategories.length > 0) {
+      result = result.filter((card) => selectedCategories.includes(card.type));
+    }
+
+    setFilteredCards(result);
+  }, [searchQuery, selectedCategories]);
+
   return (
     <>
       <NavbarHome />
@@ -40,9 +64,20 @@ export default function App() {
           OUR GALLERY
         </motion.h2>
 
-        <div className="flex w-full justify-center gap-2 relative">
-          <Filter show={showFilter} setShow={setShowFilter} />
-          
+        <motion.div className="flex w-full justify-center gap-2 relative"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        >
+            <Filter
+              show={showFilter}
+              setShow={setShowFilter}
+              selectedCategories={selectedCategories}
+              setSelectedCategories={setSelectedCategories}
+              setSearchQuery={setSearchQuery}
+              setSortOption={setSortOption}
+            />
           <div className="cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
             {filteredCards.map((member, index) => (
               <motion.div
@@ -88,7 +123,7 @@ export default function App() {
               </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
       <motion.div
         initial={{ opacity: 0 }}
